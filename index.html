@@ -286,6 +286,66 @@ h2{
   line-height:1.6;
 }
 
+
+.image-icon{
+  width:16px;height:13px;
+  border:1.5px solid #7B8497;
+  border-radius:2px;
+  position:relative;
+  flex:none;
+  background:linear-gradient(145deg,#fff 0 45%,#EEF1F5 46% 100%);
+}
+.image-icon::before{
+  content:"";
+  position:absolute;
+  width:3px;height:3px;
+  border-radius:50%;
+  background:#7B8497;
+  right:2px;top:2px;
+}
+.image-icon::after{
+  content:"";
+  position:absolute;
+  left:2px;bottom:2px;
+  width:9px;height:5px;
+  background:linear-gradient(135deg,transparent 0 23%,#A8AFBC 24% 49%,transparent 50% 57%,#7B8497 58%);
+}
+.proposal-guides{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:-7px 0 22px;
+}
+.proposal-guide{
+  display:grid;
+  grid-template-columns:31px 1fr;
+  gap:11px;
+  padding:14px 15px;
+  border:1px solid var(--line);
+  border-radius:11px 0 11px 0;
+  background:#FCFCFD;
+}
+.proposal-guide .guide-icon{
+  width:29px;height:29px;
+  display:grid;place-items:center;
+  background:var(--red-soft);
+  color:var(--red);
+  border-radius:8px 0 8px 0;
+  font-size:12px;
+  font-weight:600;
+}
+.proposal-guide strong{
+  display:block;
+  font-size:11.5px;
+  margin-bottom:3px;
+}
+.proposal-guide p{
+  margin:0;
+  color:var(--muted);
+  font-size:10.5px;
+  line-height:1.55;
+}
+
 /* Product interactive */
 .product-shell{
   display:grid;
@@ -669,6 +729,7 @@ footer{
 @keyframes fade{from{opacity:.45;transform:translateY(3px)}to{opacity:1;transform:none}}
 
 @media(max-width:980px){
+  .proposal-guides{grid-template-columns:1fr}
   .section-index{grid-template-columns:1fr}
   .section-index a{border-right:0;border-bottom:1px solid var(--line);text-align:left;padding-left:46px}
   .grid-current,.product-shell,.onepager-layout,.clickup-layout,.example-grid{grid-template-columns:1fr}
@@ -759,7 +820,24 @@ footer{
 <section id="proposta">
   <div class="section-kicker"><span class="num">02</span> Proposta de organização</div>
   <h2>Ramificar a base conforme a lógica de cada produto</h2>
-  <p class="section-lead">A proposta é manter as informações estruturantes de cada solução em seu MD principal e distribuir seus desdobramentos em pastas específicas. A estrutura varia conforme a natureza e a complexidade de cada produto.</p>
+  <p class="section-lead">A proposta mantém as informações estruturantes de cada solução em seu MD principal e distribui seus desdobramentos entre módulos, jornadas, lançamentos e insights de mercado e concorrência, conforme a lógica de cada produto. A base também passa a reunir telas de produto que podem ser indicadas para a produção dos materiais.</p>
+
+  <div class="proposal-guides">
+    <div class="proposal-guide">
+      <div class="guide-icon">MD</div>
+      <div>
+        <strong>MDs de lançamentos apenas quando fizer sentido</strong>
+        <p>A pasta de lançamentos reunirá novas funcionalidades e entregas mais robustas. As demais funcionalidades continuam sendo consumidas na base de conhecimento dos produtos.</p>
+      </div>
+    </div>
+    <div class="proposal-guide">
+      <div class="guide-icon">▣</div>
+      <div>
+        <strong>Telas de produto como referência de produção</strong>
+        <p>As capturas e referências visuais ficam organizadas na base para que o direcionamento indique exatamente quais telas devem ser utilizadas.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="product-shell">
     <div class="product-menu" id="productMenu" aria-label="Selecione um produto"></div>
@@ -852,7 +930,7 @@ footer{
         </div>
         <div class="task-field">
           <span class="field-num">07</span>
-          <div><strong>Materiais complementares</strong><span>Existem apresentações, dados, demos ou documentos adicionais que precisam ser considerados?</span></div>
+          <div><strong>Materiais complementares</strong><span>Existem apresentações, dados, demos, documentos ou telas de produto que precisam ser considerados?</span></div>
         </div>
       </div>
     </div>
@@ -864,6 +942,7 @@ footer{
         <div class="logic-row"><i></i><span>O ClickUp registra somente o <strong>recorte daquela demanda</strong>.</span></div>
         <div class="logic-row"><i></i><span>O PMM indica quais arquivos da base devem ser consultados para aquela produção.</span></div>
         <div class="logic-row"><i></i><span>Materiais pontuais entram como complemento sem precisar ser incorporados ao MD principal.</span></div>
+        <div class="logic-row"><i></i><span>Quando houver referências disponíveis, o direcionamento também indica <strong>quais telas de produto devem ser utilizadas</strong>.</span></div>
       </div>
     </div>
   </div>
@@ -872,11 +951,11 @@ footer{
 <section id="exemplos">
   <div class="section-kicker"><span class="num">05</span> Exemplos práticos</div>
   <h2>Como a proposta funcionaria em dois tipos de demanda</h2>
-  <p class="section-lead">Os exemplos abaixo mostram a diferença entre um lançamento de funcionalidade e uma pauta de mercado, utilizando a mesma estrutura de direcionamento no ClickUp.</p>
+  <p class="section-lead">Os exemplos abaixo mostram a diferença entre um lançamento e um insight de mercado, utilizando a mesma estrutura de direcionamento no ClickUp.</p>
 
   <div class="example-tabs" role="tablist">
     <button class="active" data-example="nfse" role="tab" aria-selected="true">Lançamento · Recepção de NFSe</button>
-    <button data-example="reforma" role="tab" aria-selected="false">Pauta de mercado · Reforma Tributária</button>
+    <button data-example="reforma" role="tab" aria-selected="false">Insight de mercado · Reforma Tributária</button>
   </div>
 
   <div class="example-shell">
@@ -903,10 +982,12 @@ footer{
 </div>
 
 <script>
-const products = {"plataforma": {"name": "Sienge Plataforma", "meta": "Jornadas · Módulos · Funcionalidades · Pautas de mercado", "note": "Estrutura mais ramificada por concentrar diferentes jornadas, módulos e frentes de comunicação.", "root": "sienge-plataforma/", "items": [{"type": "file", "name": "siengePlataforma.md", "desc": "MD principal"}, {"type": "folder", "name": "jornadas/", "desc": "Grandes frentes do produto", "children": [{"type": "file", "name": "jornada-1.md"}, {"type": "file", "name": "jornada-2.md"}]}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "funcionalidades/", "desc": "Entregas que precisam de contexto próprio", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "desc": "Assuntos externos relacionados ao produto", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}, "prevision": {"name": "Prevision", "meta": "Módulos · Funcionalidades · Pautas de mercado", "note": "A estrutura parte do produto e se desdobra nas frentes que precisam ser consultadas de forma independente.", "root": "prevision/", "items": [{"type": "file", "name": "prevision.md", "desc": "MD principal"}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "funcionalidades/", "desc": "Entregas específicas", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "desc": "Contextos e discursos externos", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}, "construpoint": {"name": "Sienge Construpoint", "meta": "Módulos · Funcionalidades · Pautas de mercado", "note": "A organização acompanha os módulos do produto e separa funcionalidades ou pautas que precisem de contexto próprio.", "root": "sienge-construpoint/", "items": [{"type": "file", "name": "siengeConstrupoint.md", "desc": "MD principal"}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "funcionalidades/", "desc": "Entregas específicas", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "desc": "Contextos e discursos externos", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}, "construcompras": {"name": "Sienge Construcompras", "meta": "Funcionalidades · Pautas de mercado", "note": "Estrutura mais enxuta: o MD principal concentra o produto e os desdobramentos ficam restritos às funcionalidades e pautas relevantes.", "root": "sienge-construcompras/", "items": [{"type": "file", "name": "siengeConstrucompras.md", "desc": "MD principal"}, {"type": "folder", "name": "funcionalidades/", "desc": "Entregas específicas", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "desc": "Contextos e discursos externos", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}, "construmanager": {"name": "Construmanager", "meta": "Funcionalidades · Pautas de mercado", "note": "O MD principal permanece como base da solução, enquanto funcionalidades e pautas de mercado ganham arquivos próprios quando necessário.", "root": "construmanager/", "items": [{"type": "file", "name": "construmanager.md", "desc": "MD principal"}, {"type": "folder", "name": "funcionalidades/", "desc": "Entregas específicas", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "desc": "Contextos e discursos externos", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}, "obrahub": {"name": "Sienge Obra Hub", "meta": "Audiências · Funcionalidades · Pautas de mercado", "note": "A primeira divisão ocorre por audiência, porque Fornecedor e Comprador possuem contextos, argumentos e usos diferentes.", "root": "sienge-obra-hub/", "items": [{"type": "file", "name": "siengeObraHub.md", "desc": "MD principal"}, {"type": "folder", "name": "fornecedor/", "desc": "Audiência Fornecedor", "children": [{"type": "folder", "name": "funcionalidades/", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}, {"type": "folder", "name": "comprador/", "desc": "Audiência Comprador", "children": [{"type": "folder", "name": "funcionalidades/", "children": [{"type": "file", "name": "funcionalidade-1.md"}, {"type": "file", "name": "funcionalidade-2.md"}]}, {"type": "folder", "name": "pautas-de-mercado/", "children": [{"type": "file", "name": "pauta-de-mercado-1.md"}, {"type": "file", "name": "pauta-de-mercado-2.md"}]}]}]}, "capital": {"name": "Sienge Capital", "meta": "Sienge Crédito", "note": "Neste caso, a proposta é manter a estrutura simples e criar apenas o desdobramento específico para Sienge Crédito.", "root": "sienge-capital/", "items": [{"type": "file", "name": "siengeCapital.md", "desc": "MD principal"}, {"type": "folder", "name": "sienge-credito/", "desc": "Desdobramento da vertical", "children": [{"type": "file", "name": "siengeCredito.md"}]}]}};
+const products = {"geral": {"name": "Estrutura geral", "meta": "Pasta docs · Organização por produto", "note": "A pasta geral passa a concentrar uma estrutura própria para cada produto ou frente do ecossistema.", "root": "docs/", "items": [{"type": "folder", "name": "construcompras/"}, {"type": "folder", "name": "construmanager/"}, {"type": "folder", "name": "construpoint/"}, {"type": "folder", "name": "obra-hub/"}, {"type": "folder", "name": "prevision/"}, {"type": "folder", "name": "sienge-capital/"}, {"type": "folder", "name": "sienge-ecossistema/"}, {"type": "folder", "name": "sienge-plataforma/"}]}, "construcompras": {"name": "Sienge Construcompras", "meta": "Módulos · Lançamentos · Insights · Telas de produto", "note": "O MD principal reúne o conhecimento estrutural da solução. Os aprofundamentos ficam separados por natureza de uso.", "root": "construcompras/", "items": [{"type": "file", "name": "siengeConstrucompras.md", "desc": "MD principal"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}, {"type": "folder", "name": "lancamentos/", "desc": "Novidades e entregas robustas", "children": [{"type": "file", "name": "lancamento-1.md"}, {"type": "file", "name": "lancamento-2.md"}]}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "telas-de-produto/", "desc": "Referências visuais", "children": [{"type": "image", "name": "tela-1.png"}, {"type": "image", "name": "tela-2.png"}]}]}, "construmanager": {"name": "Construmanager", "meta": "Módulos · Lançamentos · Insights · Telas de produto", "note": "A estrutura separa os conteúdos permanentes do produto de lançamentos, análises externas e referências visuais.", "root": "construmanager/", "items": [{"type": "file", "name": "construmanager.md", "desc": "MD principal"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}, {"type": "folder", "name": "lancamentos/", "desc": "Novidades e entregas robustas", "children": [{"type": "file", "name": "lancamento-1.md"}, {"type": "file", "name": "lancamento-2.md"}]}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "telas-de-produto/", "desc": "Referências visuais", "children": [{"type": "image", "name": "tela-1.png"}, {"type": "image", "name": "tela-2.png"}]}]}, "construpoint": {"name": "Sienge Construpoint", "meta": "Módulos · Lançamentos · Insights · Telas de produto", "note": "O produto mantém um MD principal e desdobramentos específicos para módulos, lançamentos, análises externas e telas.", "root": "construpoint/", "items": [{"type": "file", "name": "construpoint.md", "desc": "MD principal"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}, {"type": "folder", "name": "lancamentos/", "desc": "Novidades e entregas robustas", "children": [{"type": "file", "name": "lancamento-1.md"}, {"type": "file", "name": "lancamento-2.md"}]}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "telas-de-produto/", "desc": "Referências visuais", "children": [{"type": "image", "name": "tela-1.png"}, {"type": "image", "name": "tela-2.png"}]}]}, "obrahub": {"name": "Sienge Obra Hub", "meta": "Audiências · Insights · Telas de produto", "note": "A estrutura diferencia as audiências de Construtoras e Fornecedores e mantém os conteúdos transversais de mercado e referências visuais.", "root": "obra-hub/", "items": [{"type": "file", "name": "siengeObraHub.md", "desc": "MD principal"}, {"type": "folder", "name": "construtoras/", "desc": "Audiência Construtoras"}, {"type": "folder", "name": "fornecedores/", "desc": "Audiência Fornecedores"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}, {"type": "folder", "name": "telas-de-produto/", "desc": "Referências visuais", "children": [{"type": "image", "name": "tela-1.png"}, {"type": "image", "name": "tela-2.png"}]}]}, "prevision": {"name": "Prevision", "meta": "Módulos · Lançamentos · Insights · Telas de produto", "note": "A estrutura organiza o produto por módulos e separa lançamentos, inteligência de mercado e referências visuais.", "root": "prevision/", "items": [{"type": "file", "name": "prevision.md", "desc": "MD principal"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}, {"type": "folder", "name": "lancamentos/", "desc": "Novidades e entregas robustas", "children": [{"type": "file", "name": "lancamento-1.md"}, {"type": "file", "name": "lancamento-2.md"}]}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "telas-de-produto/", "desc": "Referências visuais", "children": [{"type": "image", "name": "tela-1.png"}, {"type": "image", "name": "tela-2.png"}]}]}, "capital": {"name": "Sienge Capital", "meta": "Sienge Crédito · Insights de mercado e concorrência", "note": "A vertical mantém um MD principal, o desdobramento de Sienge Crédito e uma frente própria de inteligência de mercado e concorrência.", "root": "sienge-capital/", "items": [{"type": "file", "name": "siengeCapital.md", "desc": "MD principal"}, {"type": "folder", "name": "sienge-credito/", "desc": "Frente Sienge Crédito"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}]}, "ecossistema": {"name": "Sienge Ecossistema", "meta": "Estrutura reservada", "note": "A pasta está prevista na organização geral, mas ainda não possui desdobramentos definidos nesta proposta.", "root": "sienge-ecossistema/", "items": []}, "plataforma": {"name": "Sienge Plataforma", "meta": "Jornadas · Módulos · Lançamentos · Insights · Telas de produto", "note": "É a estrutura mais ramificada por concentrar jornadas, módulos, lançamentos, inteligência de mercado e referências visuais.", "root": "sienge-plataforma/", "items": [{"type": "file", "name": "siengePlataforma.md", "desc": "MD principal"}, {"type": "folder", "name": "insights-mercado-concorrencia/", "desc": "Mercado e concorrência", "children": [{"type": "file", "name": "insight-mercado-1.md"}, {"type": "file", "name": "analise-concorrencia-1.md"}]}, {"type": "folder", "name": "jornadas/", "desc": "Jornadas estratégicas", "children": [{"type": "file", "name": "jornadaAce.md"}, {"type": "file", "name": "jornadaCompliance.md"}, {"type": "file", "name": "jornadaFinanceira.md"}]}, {"type": "folder", "name": "lancamentos/", "desc": "Novidades e entregas robustas", "children": [{"type": "file", "name": "lancamento-1.md"}, {"type": "file", "name": "lancamento-2.md"}]}, {"type": "folder", "name": "modulos/", "desc": "Aprofundamentos por módulo", "children": [{"type": "file", "name": "modulo-1.md"}, {"type": "file", "name": "modulo-2.md"}]}, {"type": "folder", "name": "telas-de-produto/", "desc": "Referências visuais", "children": [{"type": "image", "name": "tela-1.png"}, {"type": "image", "name": "tela-2.png"}]}]}};
 
 function icon(type) {
-  return type === "folder" ? '<span class="folder-icon"></span>' : '<span class="file-icon"></span>';
+  if (type === "folder") return '<span class="folder-icon"></span>';
+  if (type === "image") return '<span class="image-icon"></span>';
+  return '<span class="file-icon"></span>';
 }
 
 function childHTML(item) {
@@ -964,11 +1045,11 @@ Object.entries(products).forEach(([key,p]) => {
   b.addEventListener("click", () => renderProduct(key));
   productMenu.appendChild(b);
 });
-renderProduct("plataforma");
+renderProduct("geral");
 
 const examples = {
   nfse: {
-    type:"Lançamento de funcionalidade",
+    type:"Lançamento",
     title:"Recepção de NFSe nativa no Sienge Plataforma",
     fields:[
       ["Contexto da demanda","O Sienge Plataforma passa a disponibilizar a Recepção de NFSe de forma nativa, utilizando o Ambiente Nacional de NFS-e. A funcionalidade deixa de depender exclusivamente de conectores externos, que continuam existindo nos cenários em que ainda forem necessários."],
@@ -979,24 +1060,25 @@ const examples = {
     ],
     required:[
       ["Obrigatório","sienge-plataforma/siengePlataforma.md"],
-      ["Obrigatório","sienge-plataforma/jornadas/compliance.md"],
+      ["Obrigatório","sienge-plataforma/jornadas/jornadaCompliance.md"],
       ["Obrigatório","sienge-plataforma/modulos/notas-fiscais.md"],
-      ["Obrigatório","sienge-plataforma/funcionalidades/recepcao-nfse.md"],
-      ["Complementar","sienge-plataforma/pautas-de-mercado/reforma-tributaria.md"]
+      ["Obrigatório","sienge-plataforma/lancamentos/recepcao-nfse.md"],
+      ["Complementar","sienge-plataforma/insights-mercado-concorrencia/reforma-tributaria.md"]
     ],
     materials:[
       "Material da nova oferta de Notas Fiscais",
       "Demonstração da Recepção de NFSe",
       "Documentação técnica da funcionalidade",
-      "Materiais sobre cobertura do Ambiente Nacional"
+      "Materiais sobre cobertura do Ambiente Nacional",
+      "Telas indicadas: sienge-plataforma/telas-de-produto/"
     ],
     statuses:null
   },
   reforma: {
-    type:"Pauta de mercado",
+    type:"Insight de mercado",
     title:"Reforma Tributária: como o Sienge Plataforma apoia a preparação",
     fields:[
-      ["Contexto da demanda","A transição da Reforma Tributária afeta não apenas a apuração tributária, mas também as rotinas que originam e movimentam os dados fiscais, como compras, contratos, documentos, financeiro e contabilidade. A pauta deve mostrar como capacidades do Sienge Plataforma já apoiam essa preparação."],
+      ["Contexto da demanda","A transição da Reforma Tributária afeta não apenas a apuração tributária, mas também as rotinas que originam e movimentam os dados fiscais, como compras, contratos, documentos, financeiro e contabilidade. O conteúdo deve mostrar como capacidades do Sienge Plataforma já apoiam essa preparação."],
       ["Objetivo","Relacionar as mudanças trazidas pela Reforma Tributária às rotinas da construção civil e demonstrar quais capacidades do Sienge Plataforma já apoiam as empresas na preparação e adequação de seus processos."],
       ["Público prioritário","Clientes e mercado, com prioridade para lideranças e profissionais das áreas Fiscal, Contábil, Financeira e Administrativa."],
       ["Direcionamento estratégico","Partir dos impactos operacionais da Reforma, e não apenas da explicação dos novos tributos. Demonstrar as capacidades já disponíveis no Sienge Plataforma e separar com clareza o que está disponível hoje, o que está em evolução no roadmap e o que ainda depende de definição legal."],
@@ -1004,8 +1086,8 @@ const examples = {
     ],
     required:[
       ["Obrigatório","sienge-plataforma/siengePlataforma.md"],
-      ["Obrigatório","sienge-plataforma/jornadas/compliance.md"],
-      ["Obrigatório","sienge-plataforma/pautas-de-mercado/reforma-tributaria.md"],
+      ["Obrigatório","sienge-plataforma/jornadas/jornadaCompliance.md"],
+      ["Obrigatório","sienge-plataforma/insights-mercado-concorrencia/reforma-tributaria.md"],
       ["Complementar","sienge-plataforma/modulos/notas-fiscais.md"],
       ["Complementar","sienge-plataforma/modulos/financeiro.md"],
       ["Complementar","sienge-plataforma/modulos/suprimentos.md"],
@@ -1015,7 +1097,8 @@ const examples = {
       "Material de Reforma Tributária / ConstruSummit",
       "Roadmap de adequações tributárias",
       "Documentação das entregas já disponíveis",
-      "Materiais técnicos e regulatórios utilizados como fonte"
+      "Materiais técnicos e regulatórios utilizados como fonte",
+      "Telas indicadas: sienge-plataforma/telas-de-produto/"
     ],
     statuses:[
       ["available","Disponível hoje"],
